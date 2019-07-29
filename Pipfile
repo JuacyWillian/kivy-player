@@ -12,6 +12,8 @@ pycodestyle = "*"
 [packages]
 cython = "==0.28.2"
 kivy = {editable = true,git = "https://github.com/kivy/kivy"}
+kivymd = {editable = true,git = "https://github.com/heattheatr/kivymd"}
+pillow = "==6"
 
 [requires]
 python_version = "3.7"
