@@ -5,7 +5,6 @@
 def test_app_title(app):
     assert app.title == "Music Player"
 
-
 # def test_toolbar_exists(app):
 #     assert isinstance(app.toolbar, MDToolbar)
 

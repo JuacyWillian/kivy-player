@@ -2,7 +2,6 @@ from kivy.lang import Builder
 from kivy.properties import ObjectProperty
 from kivy.uix.behaviors import ButtonBehavior
 from kivy.uix.image import AsyncImage
-from kivymd.list import MDList
 
 from .base import BaseScreen
 

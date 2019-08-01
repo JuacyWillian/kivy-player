@@ -1,5 +1,3 @@
-
-
 from kivy.lang import Builder
 
 from .base import BaseScreen
