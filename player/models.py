@@ -16,3 +16,8 @@ class Artist():
 class Album():
     # Representa um unico album
     pass
+
+
+class Genre():
+    # Representa o genero da musica
+    pass
