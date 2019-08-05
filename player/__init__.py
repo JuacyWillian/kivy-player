@@ -18,7 +18,6 @@ class Player(App):
     manager = ObjectProperty(None)
     theme_cls = ThemeManager()
     theme_cls.primary_palette = "Indigo"
-
     music_root_directory = StringProperty("")
 
     def build(self, ):
@@ -26,19 +25,34 @@ class Player(App):
         return self.manager
 
     def on_start(self, ):
+        """Ação executada quando o app é iniciado."""
         self.goto(ScreenType.HOME)
 
-    def on_pause(self, ): pass
+    def on_pause(self, ):
+        """Ação executada quando o app é paudado."""
+        pass
 
-    def on_resume(self, ): pass
+    def on_resume(self, ):
+        """Ação executada quando o app é retomado."""
+        pass
 
-    def on_stop(self, ): pass
+    def on_stop(self, ):
+        """Ação executada quando o app é finalizado."""
+        pass
 
     def goto(self, screen_type, **kwargs):
+        """Metodo de troca de telas.
+        :arg: screen_type deve ser uma instancia de ScreenType.
+        :keyword: dados necessarios para o funcionamento da tela.
+
+        :exemplo: app.goto(ScreenType.PLAYER, playlist=playlist)
+        """
         self.manager.switch_to(screen_type.screen(self, **kwargs))
 
-    def update_library(self): pass
+    def update_library(self):
+        pass
 
     def choose_root_directory(self, ):
+        """Exibe o dialogo para escolha dos diretórios de musicas."""
         # TODO: show popup for choose music_root_directory
         Logger.info("APP: choose_root_directory")

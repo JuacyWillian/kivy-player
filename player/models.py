@@ -1,5 +1,5 @@
 class Settings():
-    # vai armazenar as configuracoes do aplicativo
+    # vai armazenar as configuracoes do aplicativo, e as preferencias do usuario.
     pass
 
 
