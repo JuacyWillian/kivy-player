@@ -3,8 +3,32 @@ from kivy.lang import Builder
 from .base import BaseScreen
 
 Builder.load_string("""
+#:import MDLabel kivymd.label
+
 <PlayerScreen>:
-    FloatLayout:
+    BoxLayout
+        orientation: "vertical"
+        BoxLayout
+            MDLabel
+                text: "Imagem da Capa do CD"
+                halign: 'center'
+        BoxLayout
+            orientation: "vertical"
+            size_hint_y: .3
+            MDLabel
+                text: "Nothing else matters"
+                halign: 'center'
+            MDLabel
+                text: "Metallica"
+                halign: 'center'
+        BoxLayout
+            size_hint_y: .3
+            Button
+                text: "Voltar"
+            Button
+                text: "Play/Pause"
+            Button
+                text: "Avançar"
 """)
 
 
