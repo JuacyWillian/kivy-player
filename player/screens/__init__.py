@@ -7,8 +7,7 @@ from .settings import SettingScreen as Settings
 
 
 class ScreenType(enum.Enum):
-    """
-        Enum contendo todas as opcoes de telas do applicativo.
+    """ Enum contendo todas as opcoes de telas do applicativo.
         Ele é usado para a troca de telas de forma simples.
         Por exemplo, para executar a troca de telas para o Home,
         é só chamar self.app.goto(ScreenType.HOME)

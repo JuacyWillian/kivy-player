@@ -1,5 +1,6 @@
 class TrackInfoService():
     """Responsavel por buscar informacoes dos arquivos de audio, local ou remotamente."""
+
     def load_info(self, track):
         """Carrega as informacoes dos arquivos de audio."""
         pass

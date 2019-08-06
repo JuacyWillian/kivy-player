@@ -50,6 +50,7 @@ Builder.load_string("""
 class PlayerScreen(BaseScreen):
     playlist = ListProperty([])
     playing = BooleanProperty(False)
+
     def __init__(self, app, **kwargs):
         self.plalist = kwargs.pop('playlist')
         super(PlayerScreen, self).__init__(app, **kwargs)
@@ -69,5 +70,6 @@ class PlayerScreen(BaseScreen):
 
     def avancar(self, *args):
         pass
+
     def retroceder(self, *args):
         pass
