@@ -14,9 +14,8 @@ Builder.load_string("""
     text: self.item[0].capitalize()
     secondary_text: self.item[1].capitalize()
     
-    # ItemAvatar:
-    #     text: root.sign
-
+    on_release: app.goto(ScreenType.PLAYER, playlist=[self.item])
+    
     ItemOptions:
         icon: 'dots-vertical'
         on_release: root.show_options()
@@ -38,6 +37,8 @@ class ItemAvatar(ILeftBody, MDLabel):
 
 
 class MusicItem(TwoLineRightIconListItem):
+    item = ObjectProperty(None)
+
     def __init__(self, item, **kwargs):
         self.item = item
         super(MusicItem, self).__init__(**kwargs)
@@ -49,9 +50,6 @@ class MusicItem(TwoLineRightIconListItem):
             return "".join([l[0] for l in words]).upper()
         return words[0:2].upper()
 
-    def on_release(self):
-        Logger.info("TODO: load player screen and play music.")
-
     def show_options(self):
         Logger.info(f"TODO: show item options")
 
@@ -61,7 +59,7 @@ class LibraryScreen(BaseScreen):
     music_list = ObjectProperty(None)
 
     def __init__(self, app, **kwargs):
-        self.library = kwargs.pop('library', None)
+        self.library = app.library
         super(LibraryScreen, self).__init__(app, **kwargs)
 
     def on_pre_enter(self, *args):
@@ -76,7 +74,7 @@ class LibraryScreen(BaseScreen):
 
     def load_library(self):
         def add_tracks():
-            for track in self.library.musics:
+            for track in self.library.load_musics():
                 self.music_list.add_widget(MusicItem(track))
 
         # Clock.schedule_once(add_tracks)
