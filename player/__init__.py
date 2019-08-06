@@ -2,27 +2,23 @@ from kivy import Logger
 from kivy.app import App
 from kivy.properties import ObjectProperty
 from kivy.properties import StringProperty
-from kivy.uix.screenmanager import ScreenManager
 from kivymd.theming import ThemeManager
 
+from player.classes.library import Library
 from player.screens import ScreenType
 
 
-class Manager(ScreenManager):
-    def __init__(self, **kwargs):
-        super(Manager, self).__init__(**kwargs)
-
-
-class Player(App):
+class PlayerApp(App):
     title = "Music Player"
     manager = ObjectProperty(None)
     theme_cls = ThemeManager()
     theme_cls.primary_palette = "Indigo"
     music_root_directory = StringProperty("")
+    library = Library()
 
     def build(self, ):
-        self.manager = Manager()
-        return self.manager
+        self.manager = self.root.ids.manager
+        return self.root
 
     def on_start(self, ):
         """Ação executada quando o app é iniciado."""
@@ -41,12 +37,6 @@ class Player(App):
         pass
 
     def goto(self, screen_type, **kwargs):
-        """Metodo de troca de telas.
-        :arg: screen_type deve ser uma instancia de ScreenType.
-        :keyword: dados necessarios para o funcionamento da tela.
-
-        :exemplo: app.goto(ScreenType.PLAYER, playlist=playlist)
-        """
         self.manager.switch_to(screen_type.screen(self, **kwargs))
 
     def update_library(self):
