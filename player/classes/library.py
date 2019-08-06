@@ -32,7 +32,7 @@ class Library(EventDispatcher):
     def load_musics(self):
         """Carrega os arquivos de audio."""
         for m in musics:
-            self.musics.append(m)
+            yield m
 
     def load_artists(self):
         """Carrega os artistas."""
