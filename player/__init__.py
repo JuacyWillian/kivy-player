@@ -10,14 +10,18 @@ from player.screens import ScreenType
 
 class PlayerApp(App):
     title = "Music Player"
-    manager = ObjectProperty(None)
     theme_cls = ThemeManager()
     theme_cls.primary_palette = "Indigo"
-    music_root_directory = StringProperty("")
+
     library = Library()
+    music_root_directory = StringProperty("")
+
+    manager = ObjectProperty(None)
+    toolbar = ObjectProperty(None)
 
     def build(self, ):
         self.manager = self.root.ids.manager
+        self.toolbar = self.root.ids.toolbar
         return self.root
 
     def on_start(self, ):
